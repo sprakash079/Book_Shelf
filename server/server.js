@@ -10,7 +10,7 @@ const app = express();
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(config.DATABASE, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, });
 
 
 
@@ -38,8 +38,6 @@ app.post('/api/book', (req, res) => {
 
             })
         })
-
-
     })
     //update//
 
@@ -49,6 +47,6 @@ app.post('/api/book', (req, res) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-    console.log("successfull connecect");
+    console.log("successfully connected");
 
 })

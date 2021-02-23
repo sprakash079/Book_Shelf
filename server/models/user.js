@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
         required: true,
         minlength: 6
     },
-    name: {
+    firstname: {
         type: String,
         maxlength: 100
 
@@ -28,6 +28,11 @@ const userSchema = mongoose.Schema({
         maxlength: 100
 
     },
+    college: {
+        type: String,
+        maxlength:100
+    }
+
 
 
 })
