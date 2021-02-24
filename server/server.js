@@ -16,7 +16,7 @@ mongoose.connect(config.DATABASE, { useNewUrlParser: true, useUnifiedTopology: t
 
 const { User } = require('./models/user');
 const { Book } = require('./models/book');
-
+const { Item } = require('./models/Item');
 
 
 
@@ -24,6 +24,29 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 //get//
+
+app.get('/api/getBook', (req, res) => {
+    let id = req.query.id;
+
+    Book.findById(id, (err, doc) => {
+        if (err) return res.status(400).send(err);
+        res.send(doc);
+    })
+})
+
+app.get('/api/books', (req, res) => {
+    // locahost:3000/api/books?skip=3&limit=2&order=asc
+    let skip = parseInt(req.query.skip);
+    let limit = parseInt(req.query.limit);
+    let order = req.query.order;
+
+    // ORDER = asc || desc
+    Book.find().skip(skip).sort({ _id: order }).limit(limit).exec((err, doc) => {
+        if (err) return res.status(400).send(err);
+        res.send(doc);
+    })
+})
+
 
 
 

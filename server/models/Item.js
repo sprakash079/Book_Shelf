@@ -12,11 +12,11 @@ const itemSchema = mongoose.Schema({
         },
         category: {
             type: String,
-            default:'n/a'
+            default: 'n/a'
         },
         photo: {
             type: String,
-            default:'n/a'
+            default: 'n/a'
         },
         price: {
             type: String,
@@ -24,9 +24,9 @@ const itemSchema = mongoose.Schema({
         },
         desc: {
             type: String,
-            default:'n/a'
+            default: 'n/a'
         }
-    },    
+    },
     ownerID: {
         type: String,
         required: true
